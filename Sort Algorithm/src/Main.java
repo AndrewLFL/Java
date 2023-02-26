@@ -1,14 +1,19 @@
+import java.sql.Array;
 import java.util.Arrays;
 import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        int[] lista = gerarVetor(10);
+        int[] lista = gerarVetor(100);
         selectionSort(lista);
         System.out.println(Arrays.toString(lista));
-        int[] lista2 = gerarVetor(10);
+        int[] lista2 = gerarVetor(100);
         bubbleSort(lista2);
         System.out.println(Arrays.toString(lista2));
+        int[] lista3 = gerarVetor(100);
+        insertionSort(lista3);
+        System.out.println(Arrays.toString(lista3));
+
     }
 
     public static void selectionSort (int[] lista)
@@ -46,6 +51,22 @@ public class Main {
             }
         }
     }
+
+    public static void insertionSort (int[] lista)
+    {
+        for (int i = 1; i < lista.length; i++)
+        {
+            int chave = lista[i];
+            int j = i-1;
+            while (j >= 0 && lista[j] > chave)
+            {
+                lista[j+1] = lista[j];
+                j--;
+            }
+            lista[j+1] = chave;
+        }
+    }
+
 
     public static int[] gerarVetor (int n)
     {
